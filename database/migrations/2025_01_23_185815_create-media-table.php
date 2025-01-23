@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMediaTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('media', function (Blueprint $table) {
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('media', function (Blueprint $table) {
 			$table->id();
 			$table->lineString('name');
 			$table->smallInteger('type'); // 1 - filme | 2 - série
@@ -22,16 +22,17 @@ class CreateMediaTable extends Migration
 			$table->number('duration');
 			$table->text('synopsis');
 			$table->string('trailer_link');
+			$table->timestamps();
 		});
-    }
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('media');
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('media');
+	}
 }
