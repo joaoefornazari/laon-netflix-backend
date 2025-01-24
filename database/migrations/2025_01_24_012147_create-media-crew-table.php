@@ -13,11 +13,13 @@ class CreateMediaCrewTable extends Migration
      */
     public function up()
     {
-        Schema::create('media-crew', function (Blueprint $table) {
-			$table->foreign('media_id')->references('id')->on('media');
-			$table->foreign('person_id')->references('id')->on('person');
-			$table->timestamps();
-		});
+        Schema::create('media_crew', function (Blueprint $table) {
+					$table->unsignedBigInteger('media_id');
+					$table->unsignedBigInteger('person_id');
+					$table->foreign('media_id')->references('id')->on('media');
+					$table->foreign('person_id')->references('id')->on('person');
+					$table->timestamps();
+				});
     }
 
     /**
