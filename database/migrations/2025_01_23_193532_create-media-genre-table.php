@@ -16,6 +16,7 @@ class CreateMediaGenreTable extends Migration
 			Schema::create('media_genre', function (Blueprint $table) {
 				$table->foreign('media_id')->references('id')->on('media');
 				$table->foreign('genre_id')->references('id')->on('genre');
+				$table->timestamps();
 			});
 	}
 

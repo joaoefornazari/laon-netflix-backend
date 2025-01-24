@@ -16,6 +16,7 @@ class CreateMediaAwardTable extends Migration
 		Schema::create('media-award', function (Blueprint $table) {
 			$table->foreign('media_id')->references('id')->on('media');
 			$table->foreign('award_id')->references('id')->on('award');
+			$table->timestamps();
 		});
 	}
 

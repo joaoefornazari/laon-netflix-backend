@@ -17,6 +17,7 @@ class CreateMediaRateTable extends Migration
 			$table->foreign('media_id')->references('id')->on('media');
 			$table->foreign('critic_id')->references('id')->on('critic');
 			$table->number('rate');
+			$table->timestamps();
 		});
 	}
 
