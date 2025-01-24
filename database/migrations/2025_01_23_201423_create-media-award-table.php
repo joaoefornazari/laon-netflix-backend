@@ -29,6 +29,6 @@ class CreateMediaAwardTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('media-award');
+		Schema::dropIfExists('media_award');
 	}
 }

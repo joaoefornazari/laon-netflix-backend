@@ -29,6 +29,6 @@ class CreateMediaCrewTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media-crew');
+        Schema::dropIfExists('media_crew');
     }
 }

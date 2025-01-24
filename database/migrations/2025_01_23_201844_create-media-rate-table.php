@@ -30,6 +30,6 @@ class CreateMediaRateTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('media-rate');
+		Schema::dropIfExists('media_rate');
 	}
 }
