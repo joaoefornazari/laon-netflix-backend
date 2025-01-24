@@ -19,7 +19,7 @@ class CreateMediaTable extends Migration
 			$table->smallInteger('type'); // 1 - filme | 2 - série
 			$table->string('original_title');
 			$table->string('year', 4);
-			$table->number('duration');
+			$table->integer('duration');
 			$table->text('synopsis');
 			$table->string('trailer_link');
 			$table->timestamps();
