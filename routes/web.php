@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogonController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('api/v1/')->group(function () {
+	Route::post('login', [LoginController::class, 'authenticate'])->withoutMiddleware('auth:sanctum');
+
 	Route::controller(/* UserController::class */)->group(function () {
 		Route::post('logon', 'create');
 
