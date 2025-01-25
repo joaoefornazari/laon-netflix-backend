@@ -16,7 +16,7 @@ class CreatePersonTable extends Migration
 		Schema::create('person', function (Blueprint $table) {
 			$table->id();
 			$table->tinyText('name');
-			$table->string('role');
+			$table->timestamps();
 		});
 	}
 
