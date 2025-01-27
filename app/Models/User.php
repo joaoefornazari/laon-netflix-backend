@@ -24,6 +24,8 @@ class User extends Authenticatable
         'password',
     ];
 
+		protected $keyType = 'string';
+
     /**
      * The attributes that should be hidden for serialization.
      *
