@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Services\UserService;
+use App\Http\Traits\APIResponse;
 use Exception;
 
 class UserController extends Controller
 {
+	use APIResponse;
+
 	protected $userService;
 
 	public function __construct(UserService $userService)
@@ -20,17 +23,10 @@ class UserController extends Controller
 		try {
 			$result = $this->userService->createUser($request->data);
 		} catch (Exception $e) {
-			// return $this->error();
-			return response()->json([
-				'message' => 'Abacaxi',
-				'exception' => $e
-			])->setStatusCode(500);
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
 		}
 
-		return response()->json([
-			'message' => 'Manga',
-			'data' => $result
-		])->setStatusCode(200);
+		return $this->success($result);
 	}
 
 }
