@@ -6,11 +6,11 @@ trait APIResponse {
 
 	/**
 	 * Standardizes success responses sent to the client.
-	 * @param string $httpcode The HTTP Status code of the response
-	 * @param string $message The Response message, if any
 	 * @param array $data The response data, if any
+	 * @param string $message The Response message, if any
+	 * @param string $httpcode The HTTP Status code of the response
 	 */
-	public function success(int $httpcode = 200, string $message = "success", array $data = [])
+	public function success(array $data = [], string $message = "success", int $httpcode = 200)
 	{
 		return response()->json([
 			'status' => $httpcode,
@@ -21,11 +21,11 @@ trait APIResponse {
 
 	/**
 	 * Standardizes error responses sent to the client.
-	 * @param string $message The error message
 	 * @param array $data The error data
+	 * @param string $message The error message
 	 * @param string $httpCode The HTTP Status code of the response
 	 */
-	public function error(string $message, array $data, int $httpcode = 400)
+	public function error(array $data, string $message, int $httpcode = 400)
 	{
 		return response()->json([
 			'status' => $httpcode,
