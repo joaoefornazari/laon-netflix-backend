@@ -23,7 +23,7 @@ Route::prefix('api/v1/')->group(function () {
 
 		Route::prefix('user')->group(function () {
 			Route::get('{uuid}', 'read');
-			Route::put('update', 'update');
+			Route::put('{uuid}/update', 'update');
 			Route::delete('delete', 'delete');
 		});
 	});
