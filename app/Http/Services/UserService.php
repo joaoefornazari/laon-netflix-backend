@@ -27,12 +27,16 @@ class UserService extends ServiceProvider
 		$query = $this->user->query();
 		$uuid = UuidV4::getFactory()->uuid4();
 
-		return $query->create([
+		$result = $query->create([
 			'id' => $uuid->toString(),
 			'full_name' => $data['full_name'],
 			'email' => $data['email'],
 			'password' => $data['password'],
 		])->toArray();
+
+		$result['id'] = $uuid->toString();
+
+		return $result;
 	}
 
 }
