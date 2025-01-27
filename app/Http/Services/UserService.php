@@ -20,7 +20,7 @@ class UserService extends ServiceProvider
 	/**
 	 * Create a new user.
 	 * @param array $data The data to create user.
-	 * @return int
+	 * @return array
 	 */
 	public function createUser(array $data)
 	{
