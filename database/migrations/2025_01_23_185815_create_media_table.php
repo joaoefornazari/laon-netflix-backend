@@ -15,13 +15,13 @@ class CreateMediaTable extends Migration
 	{
 		Schema::create('media', function (Blueprint $table) {
 			$table->id();
-			$table->lineString('name');
+			$table->mediumText('name');
 			$table->smallInteger('type'); // 1 - filme | 2 - série
-			$table->string('original_title');
+			$table->text('original_title');
 			$table->string('year', 4);
 			$table->integer('duration');
 			$table->text('synopsis');
-			$table->string('trailer_link');
+			$table->string('trailer_link', 511);
 			$table->timestamps();
 		});
 	}
