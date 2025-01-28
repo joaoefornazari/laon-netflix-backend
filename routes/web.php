@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MediaController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +30,7 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* MediaController::class */)->group(function () {
+	Route::controller(MediaController::class)->group(function () {
 		Route::prefix('media')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
