@@ -51,4 +51,15 @@ class UserController extends Controller
 
 		return $this->success([], "User updated");
 	}
+
+	public function delete(Request $request, string $uuid)
+	{
+		try {
+			$result = $this->userService->deleteUser($uuid);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+
+		return $this->success($result, "User deleted");
+	}
 }

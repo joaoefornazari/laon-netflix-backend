@@ -83,4 +83,17 @@ class UserService extends ServiceProvider
 			->update($params);
 	}
 
+	/**
+	 * Delete the user referred by a UUID.
+	 * @param string $uuid The user's UUID.
+	 * @return
+	 */
+	public function deleteUser(string $uuid)
+	{
+		$query = $this->user->query();
+		$query->where('id', $uuid)->delete();
+		
+		return ['id' => $uuid];
+	}
+
 }
