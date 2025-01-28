@@ -23,14 +23,16 @@ trait APIResponse {
 	 * Standardizes error responses sent to the client.
 	 * @param array $trace The error trace
 	 * @param string $message The error message
-	 * @param string $httpCode The HTTP Status code of the response
+	 * @param int|string $httpCode The HTTP Status code of the response
 	 */
-	public function error(array $trace, string $message, int $httpcode = 400)
+	public function error(array $trace, string $message, int|string $httpcode = 400)
 	{
+		if (!is_int($httpcode)) $httpcode = intval($httpcode);
+
 		return response()->json([
 			'status' => $httpcode,
 			'message' => $message,
 			'trace' => $trace
-		])->setStatusCode($httpcode);
+		])->setStatusCode(($httpcode >= 599 || $httpcode <= 100) ? 400 : $httpcode);
 	}
 }
