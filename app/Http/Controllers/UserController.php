@@ -40,4 +40,15 @@ class UserController extends Controller
 		return $this->success($result);
 	}
 
+	public function update(Request $request, string $uuid)
+	{
+		try {
+			$result = $this->userService->updateUser($uuid, $request->data);
+			if (!$result) throw new Exception("Check again the data sent or the user credentials.", 400);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+
+		return $this->success([], "User updated", 204);
+	}
 }

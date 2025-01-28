@@ -54,4 +54,33 @@ class UserService extends ServiceProvider
 			->toArray();
 	}
 
+	/**
+	 * Update user data.
+	 * @param string $uuid The user's uuid.
+	 * @param array $data The new data to insert on the referred uuid's data.
+	 * @return int
+	 */
+	public function updateUser(string $uuid, array $data)
+	{
+		$query = $this->user->query();
+
+		$params = [];
+		
+		if (array_key_exists('full_name', $data)) {
+			$params['full_name'] = $data['full_name'];
+		}
+
+		if (array_key_exists('password', $data)) {
+			$params['password'] = $data['password'];
+		}
+
+		if (array_key_exists('email', $data)) {
+			$params['email'] = $data['email'];
+		}
+
+		return $query
+			->where('id', $uuid)
+			->update($params);
+	}
+
 }
