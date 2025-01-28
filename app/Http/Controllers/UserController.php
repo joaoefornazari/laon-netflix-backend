@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Services\UserService;
-use App\Http\Traits\APIResponse;
 use Exception;
 
 class UserController extends Controller
 {
-	use APIResponse;
 
 	protected $userService;
 

@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Traits\APIResponse;
 use Exception;
 
 class LoginController extends Controller
 {
-	use APIResponse;
 
 	/**
 	 * Handle an authentication attempt.
