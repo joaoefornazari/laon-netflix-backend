@@ -29,4 +29,15 @@ class UserController extends Controller
 		return $this->success($result);
 	}
 
+	public function read(Request $request, string $uuid)
+	{
+		try {
+			$result = $this->userService->getUser($uuid);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+
+		return $this->success($result);
+	}
+
 }

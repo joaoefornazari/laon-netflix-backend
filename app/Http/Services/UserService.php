@@ -39,4 +39,19 @@ class UserService extends ServiceProvider
 		return $result;
 	}
 
+	/**
+	 * Get a user from the database.
+	 * @param string $uuid The user's uuid.
+	 * @return array
+	 */
+	public function getUser(string $uuid)
+	{
+		$query = $this->user->query();
+
+		return $query
+			->where('id', $uuid)
+			->get(['full_name', 'email'])
+			->toArray();
+	}
+
 }
