@@ -2,8 +2,6 @@
  
 namespace App\Http\Services;
  
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
 use Ramsey\Uuid\Rfc4122\UuidV4;
