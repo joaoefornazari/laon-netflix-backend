@@ -16,7 +16,7 @@ trait APIResponse {
 			'status' => $httpcode,
 			'message' => $message,
 			'data' => $data
-		]);
+		])->setStatusCode($httpcode);
 	}
 
 	/**
@@ -31,6 +31,6 @@ trait APIResponse {
 			'status' => $httpcode,
 			'message' => $message,
 			'trace' => $trace
-		]);
+		])->setStatusCode($httpcode);
 	}
 }
