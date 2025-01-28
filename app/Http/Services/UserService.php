@@ -31,7 +31,7 @@ class UserService extends ServiceProvider
 			'id' => $uuid->toString(),
 			'full_name' => $data['full_name'],
 			'email' => $data['email'],
-			'password' => $data['password'],
+			'password' => bcrypt($data['password']),
 		])->toArray();
 
 		$result['id'] = $uuid->toString();
