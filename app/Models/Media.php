@@ -9,7 +9,7 @@ class Media extends Model
 {
 	use HasFactory;
 
-	 /**
+	 	/**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -24,5 +24,5 @@ class Media extends Model
 			'trailer_link',
 		];
 
-	protected $timestamps = true;
+		public $timestamps = true;
 }
