@@ -49,6 +49,6 @@ class UserController extends Controller
 			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
 		}
 
-		return $this->success([], "User updated", 204);
+		return $this->success([], "User updated");
 	}
 }
