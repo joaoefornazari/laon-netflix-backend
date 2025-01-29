@@ -3,6 +3,7 @@
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MediaAwardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PersonController;
@@ -99,7 +100,7 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* MediaAwardController::class */)->group(function () {
+	Route::controller(MediaAwardController::class)->group(function () {
 		Route::prefix('media-award')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
