@@ -73,7 +73,7 @@ class MediaService extends ServiceProvider
 	public function getMedia(int $id)
 	{
 		$query = $this->media->query();
-		$media = $query->where('id', $id)->get()->toArray();
+		$media = $query->where('id', $id)->first()->toArray();
 		return $media;
 	}
 
