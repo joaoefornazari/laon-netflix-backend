@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\PersonController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,12 +40,12 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* PersonController::class */)->group(function () {
+	Route::controller(PersonController::class)->group(function () {
 		Route::prefix('person')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
