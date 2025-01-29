@@ -126,4 +126,11 @@ class MediaService extends ServiceProvider
 		$media = $query->update($params);
 		return $media;
 	}
+
+	public function deleteMedia(int $id)
+	{
+		$query = $this->media->query();
+		$media = $query->where('id', $id)->delete();
+		return ['id' => $id];
+	}
 }

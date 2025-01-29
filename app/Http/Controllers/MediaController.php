@@ -61,4 +61,18 @@ class MediaController extends Controller
 	
 		return $this->success([], 'Media updated');
 	}
+	
+	/**
+	 * Delete a Media from database.
+	 */
+	public function delete(Request $request, int $id)
+	{
+		try {
+			$result = $this->mediaService->deleteMedia($id);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success($result, 'Media deleted');
+	}
 }
