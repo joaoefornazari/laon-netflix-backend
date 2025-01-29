@@ -67,6 +67,6 @@ class PersonService extends ServiceProvider
 	{
 		$query = $this->person->query();
 		$query->where('id', $id)->delete();
-		return ['id', $id];
+		return ['id' => $id];
 	}
 }
