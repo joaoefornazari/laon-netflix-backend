@@ -9,6 +9,8 @@ class Genre extends Model
 {
     use HasFactory;
 
+		protected $table = "Genre";
+
 		/**
 		 * The attributes that are mass assignable.
 		 * 
