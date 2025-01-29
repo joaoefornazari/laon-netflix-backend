@@ -9,6 +9,8 @@ class MediaAward extends Model
 {
     use HasFactory;
 
+		protected $table = "MediaAward";
+
 		/**
 		 * The attributes that are mass assignable.
 		 * 
