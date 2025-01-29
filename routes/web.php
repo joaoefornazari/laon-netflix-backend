@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\RoleController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -70,7 +71,7 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* RoleController::class */)->group(function () {
+	Route::controller(RoleController::class)->group(function () {
 		Route::prefix('role')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
