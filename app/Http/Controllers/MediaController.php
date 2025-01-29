@@ -15,6 +15,9 @@ class MediaController extends Controller
 		$this->mediaService = $mediaService;
 	}
 
+	/**
+	 * Create a new media (movie/series).
+	 */
 	public function create(Request $request)
 	{
 		try {
@@ -28,5 +31,20 @@ class MediaController extends Controller
 		}
 	
 		return $this->success($result, 'Media created');
+	}
+
+	/**
+	 * Read a media's image, fetching it through the media's id.
+	 * @return ResponseFactory The image itself, human-readable.
+	 */
+	public function readImage(Request $request, int $id)
+	{
+		try {
+			$result = $this->mediaService->getMediaImage($id);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return response($result['content'], 200)->header('Content-Type', $result['MIME']);
 	}
 }

@@ -55,7 +55,7 @@ class MediaService extends ServiceProvider
 			}
 			$format = $matches[0];
 			$filename = "media_{$id}_image{$format}";
-			$path = "images/{$filename}";
+			$path = "images/{$id}/{$filename}";
 
 			Storage::put($path, $response->body());
 
@@ -63,5 +63,14 @@ class MediaService extends ServiceProvider
 		} else {
 			throw new Exception('File could not be downloaded. Check the file URL again.', 422);
 		}
+	}
+
+	public function getMediaImage(int $id)
+	{
+		$images = Storage::files("images/{$id}");
+		$image = Storage::get($images[0]);
+		$MIME = Storage::mimeType($images[0]);
+
+		return ['content' => $image, 'MIME' => $MIME];
 	}
 }
