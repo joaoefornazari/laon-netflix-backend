@@ -21,4 +21,11 @@ class PersonService extends ServiceProvider
 		$person = $query->create($data)->toArray();
 		return $person;
 	}
+
+	public function getPerson(int $id)
+	{
+		$query = $this->person->query();
+		$person = $query->where('id', $id)->get()->toArray();
+		return $person;
+	}
 }

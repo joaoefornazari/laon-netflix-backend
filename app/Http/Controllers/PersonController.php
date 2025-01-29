@@ -15,6 +15,9 @@ class PersonController extends Controller
 		$this->personService = $personService;
 	}
 
+	/**
+	 * Create a new person.
+	 */
 	public function create(Request $request)
 	{
 		try {
@@ -25,4 +28,19 @@ class PersonController extends Controller
 	
 		return $this->success($result, 'Person created');
 	}
+
+	/**
+	 * Get a person based on its id.
+	 */
+	public function read(Request $request, int $id)
+	{
+		try {
+			$result = $this->personService->getPerson($id);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success($result);
+	}
+	
 }
