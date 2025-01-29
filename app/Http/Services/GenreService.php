@@ -25,4 +25,16 @@ class GenreService extends ServiceProvider
 		$genre = $query->create($data)->toArray();
 		return $genre;
 	}
+
+	/**
+	 * Get a genre by its id.
+	 * @param int $id The Genre id.
+	 * @return array
+	 */
+	public function getGenre(int $id)
+	{
+		$query = $this->genre->query();
+		$genre = $query->where('id', $id)->get()->toArray();
+		return $genre;
+	}
 }
