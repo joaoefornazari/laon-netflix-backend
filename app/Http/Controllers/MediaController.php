@@ -34,6 +34,22 @@ class MediaController extends Controller
 	}
 
 	/**
+	 * Read a Media data, referenced by its id.
+	 * DISCLAIMER: This method does not return the Media's image.
+	 * To do it, use the Read Media Image (media/id/image) endpoint.
+	 */
+	public function read(Request $request, int $id)
+	{
+		try {
+			$result = $this->mediaService->getMedia($id);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success($result);
+	}
+
+	/**
 	 * Read a media's image, fetching it through the media's id.
 	 * @return ResponseFactory The image itself, human-readable.
 	 */

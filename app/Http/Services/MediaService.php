@@ -66,6 +66,18 @@ class MediaService extends ServiceProvider
 	}
 
 	/**
+	 * Retrieve Media data referencing its id.
+	 * @param int $id The Media id.
+	 * @return array
+	 */
+	public function getImage(int $id)
+	{
+		$query = $this->media->query();
+		$media = $query->where('id', $id)->get()->toArray();
+		return $media;
+	}
+
+	/**
 	 * Get a media's image content and MIMEType referenced by the media's id.
 	 * @param int $id The media's id.
 	 * @return array
