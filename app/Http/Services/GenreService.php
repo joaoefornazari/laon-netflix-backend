@@ -42,7 +42,7 @@ class GenreService extends ServiceProvider
 	/**
 	 * Delete a genre by its id.
 	 * @param int $id The Genre id.
-	 * @return void
+	 * @return array
 	 */
 	public function deleteGenre(int $id)
 	{
