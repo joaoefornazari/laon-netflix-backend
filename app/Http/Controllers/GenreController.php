@@ -44,4 +44,34 @@ class GenreController extends Controller
 		
 			return $this->success($result);
 		}
+
+		/**
+     * Delete a genre by its id.
+     *
+     */
+    public function delete(Request $request, int $id)
+    {
+			try {
+				$result = $this->genreService->deleteGenre($id);
+			} catch (Exception $e) {
+				return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+			}
+
+			return $this->success($result, 'Genre deleted');
+    }
+
+		/**
+     * Update a genre's data, referred by genre's id.
+     */
+    public function update(Request $request, int $id)
+    {
+			try {
+					$result = $this->genreService->updateGenre($request->data, $id);
+					if (!$result) throw new Exception('Genre data not found. Check payload again.', 404);
+			} catch (Exception $e) {
+					return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+			}
+
+			return $this->success([], 'Genre updated');
+    }
 }
