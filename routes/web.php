@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
