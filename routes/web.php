@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
@@ -50,7 +51,7 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* GenreController::class */)->group(function () {
+	Route::controller(GenreController::class)->group(function () {
 		Route::prefix('genre')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
