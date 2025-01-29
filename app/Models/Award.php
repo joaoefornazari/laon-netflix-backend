@@ -9,6 +9,8 @@ class Award extends Model
 {
     use HasFactory;
 
+		protected $table = "Award";
+
 		/**
 		 * The attributes that are mass assignable.
 		 * 
