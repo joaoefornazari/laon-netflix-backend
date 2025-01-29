@@ -57,5 +57,20 @@ class PersonController extends Controller
 	
 		return $this->success([], 'Person updated');
 	}
+
+	/**
+	 * Delete a Person from the database by its id.
+	 *
+	 */
+	public function delete(Request $request, int $id)
+	{
+		try {
+			$result = $this->personService->deletePerson($id);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success($result, 'Person deleted');
+	}
 	
 }

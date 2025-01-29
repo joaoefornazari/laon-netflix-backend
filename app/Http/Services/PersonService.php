@@ -57,4 +57,16 @@ class PersonService extends ServiceProvider
 
 		return $query->where('id', $id)->update($params);
 	}
+
+	/**
+	 * Delete a Person from the database.
+	 * @param int $id The Person's id.
+	 * @return array
+	 */
+	public function deletePerson(int $id)
+	{
+		$query = $this->person->query();
+		$query->where('id', $id)->delete();
+		return ['id', $id];
+	}
 }
