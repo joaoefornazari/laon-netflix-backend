@@ -76,9 +76,7 @@ class UserService extends ServiceProvider
 			$params['email'] = $data['email'];
 		}
 
-		return $query
-			->where('id', $uuid)
-			->update($params);
+		return $query->where('id', $uuid)->update($params);
 	}
 
 	/**
