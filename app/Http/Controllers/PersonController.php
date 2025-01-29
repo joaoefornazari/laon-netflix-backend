@@ -43,6 +43,9 @@ class PersonController extends Controller
 		return $this->success($result);
 	}
 
+	/**
+	 * Update a person's data, referred by person's id.
+	 */
 	public function update(Request $request, int $id)
 	{
 		try {

@@ -15,6 +15,11 @@ class PersonService extends ServiceProvider
 		$this->person = $person;
 	}
 
+	/**
+	 * Create a new Person.
+	 * @param array $data The person data payload.
+	 * @return array
+	 */
 	public function createPerson(array $data)
 	{
 		$query = $this->person->query();
@@ -22,6 +27,11 @@ class PersonService extends ServiceProvider
 		return $person;
 	}
 
+	/**
+	 * Get a Person.
+	 * @param int $id The Person's id.
+	 * @return array
+	 */
 	public function getPerson(int $id)
 	{
 		$query = $this->person->query();
@@ -29,6 +39,12 @@ class PersonService extends ServiceProvider
 		return $person;
 	}
 
+	/**
+	 * Update a Person's data.
+	 * @param array $data The data to be updated.
+	 * @param int $id The Person's id.
+	 * @return int 1 for True/Success, 0 for False/Failure.
+	 */
 	public function updatePerson(array $data, int $id)
 	{
 		$query = $this->person->query();
