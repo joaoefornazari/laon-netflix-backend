@@ -61,8 +61,8 @@ class RoleService extends ServiceProvider
 	{
 		$query = $this->role->query();
 
-		if (array_key_exists('name', $data)) {
-			$params['name'] = $data['name'];
+		if (array_key_exists('title', $data)) {
+			$params['title'] = $data['title'];
 		} else {
 			throw new Exception('Payload is missing fields.', 400);
 		}
