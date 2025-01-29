@@ -54,8 +54,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('genre')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -63,8 +63,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('award')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -72,8 +72,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('role')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -81,8 +81,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('reviewer')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -90,8 +90,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('media-rate')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -99,8 +99,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('media-award')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -108,8 +108,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('media-genre')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -117,8 +117,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('media-crew')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 
@@ -126,8 +126,8 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('person-role')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
-			Route::put('update', 'update');
-			Route::delete('delete', 'delete');
+			Route::put('{id}/update', 'update');
+			Route::delete('{id}/delete', 'delete');
 		});
 	});
 });
