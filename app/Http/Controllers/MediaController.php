@@ -19,6 +19,10 @@ class MediaController extends Controller
 	{
 		try {
 			$result = $this->mediaService->createMedia($request->data);
+			$imageResult = $this->mediaService->downloadMediaImage($request->data['image_url'], $result['id']);
+			
+			$result['file_path'] = $imageResult['file_path'];
+
 		} catch (Exception $e) {
 			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
 		}
