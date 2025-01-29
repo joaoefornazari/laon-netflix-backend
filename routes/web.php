@@ -60,7 +60,7 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* AwardController::class */)->group(function () {
+	Route::controller(AwardController::class)->group(function () {
 		Route::prefix('award')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
