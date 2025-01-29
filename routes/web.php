@@ -35,6 +35,7 @@ Route::prefix('api/v1/')->group(function () {
 		Route::prefix('media')->group(function () {
 			Route::post('new', 'create');
 			Route::get('{id}', 'read');
+			Route::get('{id}/image', 'readImage');
 			Route::put('{id}/update', 'update');
 			Route::delete('{id}/delete', 'delete');
 		});
