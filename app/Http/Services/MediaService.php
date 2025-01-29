@@ -65,6 +65,11 @@ class MediaService extends ServiceProvider
 		}
 	}
 
+	/**
+	 * Get a media's image content and MIMEType referenced by the media's id.
+	 * @param int $id The media's id.
+	 * @return array
+	 */
 	public function getMediaImage(int $id)
 	{
 		$images = Storage::files("images/{$id}");
@@ -72,5 +77,53 @@ class MediaService extends ServiceProvider
 		$MIME = Storage::mimeType($images[0]);
 
 		return ['content' => $image, 'MIME' => $MIME];
+	}
+
+	/**
+	 * Update a Media's content, referenced by media's id.
+	 * @param array $data The data to be updated.
+	 * @param int $id The Media's id.
+	 */
+	public function updateMedia(array $data, int $id)
+	{
+		$query = $this->media->query();
+		
+		$params = [];
+
+		if (array_key_exists('name', $data)) {
+			$params['name'] = $data['name'];
+		}
+
+		if (array_key_exists('type', $data)) {
+			$params['type'] = $data['type'];
+		}
+
+		if (array_key_exists('original_title', $data)) {
+			$params['original_title'] = $data['original_title'];
+		}
+
+		if (array_key_exists('year', $data)) {
+			$params['year'] = $data['year'];
+		}
+
+		if (array_key_exists('duration', $data)) {
+			$params['duration'] = $data['duration'];
+		}
+
+		if (array_key_exists('synopsis', $data)) {
+			$params['synopsis'] = $data['synopsis'];
+		}
+		
+		if (array_key_exists('trailer_link', $data)) {
+			$params['trailer_link'] = $data['trailer_link'];
+		}
+
+		if (array_key_exists('image_url', $data)) {
+			Storage::deleteDirectory("images/{$id}");
+			$this->downloadMediaImage($data['url'], $id);
+		}
+
+		$media = $query->update($params);
+		return $media;
 	}
 }

@@ -47,4 +47,18 @@ class MediaController extends Controller
 	
 		return response($result['content'], 200)->header('Content-Type', $result['MIME']);
 	}
+
+	/**
+	 * Update a media's data.
+	 */
+	public function update(Request $request, int $id)
+	{
+		try {
+			$result = $this->mediaService->updateMedia($request->data, $id);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success([], 'Media updated');
+	}
 }
