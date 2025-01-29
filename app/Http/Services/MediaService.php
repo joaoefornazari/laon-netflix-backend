@@ -138,7 +138,12 @@ class MediaService extends ServiceProvider
 		$media = $query->update($params);
 		return $media;
 	}
-
+	
+	/**
+	 * Delete a Media from the database, using its id.
+	 * @param int $id The Media id.
+	 * @return array
+	 */
 	public function deleteMedia(int $id)
 	{
 		$query = $this->media->query();
