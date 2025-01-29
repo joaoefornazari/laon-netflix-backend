@@ -17,7 +17,7 @@ class Role extends Model
 		 * @var array<int, string>
 		 */
 		protected $fillable = [
-			'name'
+			'title'
 		];
 
 		public $timestamps = true;
