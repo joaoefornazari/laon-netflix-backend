@@ -42,5 +42,17 @@ class PersonController extends Controller
 	
 		return $this->success($result);
 	}
+
+	public function update(Request $request, int $id)
+	{
+		try {
+			$result = $this->personService->updatePerson($request->data, $id);
+			if (!$result) throw new Exception('Person data not found. Check payload again.', 404);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success([], 'Person updated');
+	}
 	
 }

@@ -28,4 +28,17 @@ class PersonService extends ServiceProvider
 		$person = $query->where('id', $id)->get()->toArray();
 		return $person;
 	}
+
+	public function updatePerson(array $data, int $id)
+	{
+		$query = $this->person->query();
+
+		if (array_key_exists('name', $data)) {
+			$params['name'] = $data['name'];
+		} else {
+			throw new Exception('Payload is missing fields.', 400);
+		}
+
+		return $query->where('id', $id)->update($params);
+	}
 }
