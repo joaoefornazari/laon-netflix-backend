@@ -40,7 +40,7 @@ class MediaAwardController extends Controller
 				return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
 			}
 
-			return $this->success($result);
+			return $this->success($result, 'Award added to media');
 		}
 
 		/**
@@ -54,7 +54,7 @@ class MediaAwardController extends Controller
 				return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
 			}
 
-			return $this->success($result);
+			return $this->success($result, 'Award deleted from media');
 		}
 		
 }
