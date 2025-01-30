@@ -101,11 +101,12 @@ Route::prefix('api/v1/')->group(function () {
 	});
 
 	Route::controller(MediaAwardController::class)->group(function () {
-		Route::prefix('media-award')->group(function () {
-			Route::post('new', 'create');
-			Route::get('{id}', 'read');
-			Route::put('{id}/update', 'update');
-			Route::delete('{id}/delete', 'delete');
+		Route::prefix('media-awards')->group(function () {
+			Route::prefix('media/{mediaId}')->group(function () {
+				Route::get('', 'list');
+				Route::post('award/{awardId}/add', 'add');
+				Route::delete('award/{awardId}/delete', 'delete');
+			});
 		});
 	});
 
