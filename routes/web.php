@@ -97,7 +97,7 @@ Route::prefix('api/v1/')->group(function () {
 			Route::prefix('media/{mediaId}')->group(function () {
 				Route::get('', 'list');
 				Route::post('reviewer/{reviewerId}/add', 'add');
-				Route::post('reviewer/{reviewerId}/update', 'update');
+				Route::put('reviewer/{reviewerId}/update', 'update');
 				Route::delete('reviewer/{reviewerId}/delete', 'delete');
 			});
 		});
