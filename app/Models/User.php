@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
     ];
 
-		protected $timestamps = true;
+		public $timestamps = true;
 
 		protected $keyType = 'string';
 

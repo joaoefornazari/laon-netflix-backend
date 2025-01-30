@@ -43,6 +43,7 @@ Route::prefix('api/v1/')->group(function () {
 	Route::controller(MediaController::class)->group(function () {
 		Route::prefix('media')->group(function () {
 			Route::post('new', 'create');
+			Route::get('all', 'list');
 			Route::get('{id}', 'read');
 			Route::get('{id}/image', 'readImage');
 			Route::put('{id}/update', 'update');

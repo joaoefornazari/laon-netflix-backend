@@ -150,4 +150,20 @@ class MediaService extends ServiceProvider
 		$media = $query->where('id', $id)->delete();
 		return ['id' => $id];
 	}
+
+	/**
+	 * List all media (with the possibility to filter results by type).
+	 * @param Request $request The request object.
+	 * @return array
+	 */
+	public function listMedia(Request $request)
+	{
+		$query = $this->media->query();
+		if ($request->query('type')) {
+			$query->where('type', $request->query('type'));
+		}
+
+		$media = $query->get()->toArray();
+		return $media;
+	}
 }
