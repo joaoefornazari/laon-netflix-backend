@@ -51,12 +51,11 @@ class MediaAwardService extends ServiceProvider
 	 */
 	public function createMediaAward(int $mediaId, int $awardId)
 	{
-		$mediaAward = new MediaAward();
-		$mediaAward->media_id = $mediaId;
-		$mediaAward->award_id = $awardId;
-		$mediaAward->save();
+		$this->mediaAward->media_id = $mediaId;
+		$this->mediaAward->award_id = $awardId;
+		$this->mediaAward->save();
 
-		return $mediaAward->toArray();
+		return $this->mediaAward->toArray();
 	}
 
 	/**

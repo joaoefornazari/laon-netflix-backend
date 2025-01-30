@@ -48,12 +48,11 @@ class MediaGenreService extends ServiceProvider
 	 */
 	public function createMediaGenre(int $mediaId, int $genreId)
 	{
-		$mediaGenre = new MediaGenre();
-		$mediaGenre->media_id = $mediaId;
-		$mediaGenre->genre_id = $genreId;
-		$mediaGenre->save();
+		$this->mediaGenre->media_id = $mediaId;
+		$this->mediaGenre->genre_id = $genreId;
+		$this->mediaGenre->save();
 
-		return $mediaGenre->toArray();
+		return $this->mediaGenre->toArray();
 	}
 
 	/**

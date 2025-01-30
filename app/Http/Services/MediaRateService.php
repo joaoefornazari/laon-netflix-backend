@@ -51,13 +51,12 @@ class MediaRateService extends ServiceProvider
 	 */
 	public function createMediaRate(int $mediaId, int $reviewerId, array $data)
 	{
-		$mediaRate = new MediaRate();
-		$mediaRate->media_id = $mediaId;
-		$mediaRate->reviewer_id = $reviewerId;
-		$mediaRate->rate = $data['rate'];
-		$mediaRate->save();
+		$this->mediaRate->media_id = $mediaId;
+		$this->mediaRate->reviewer_id = $reviewerId;
+		$this->mediaRate->rate = $data['rate'];
+		$this->mediaRate->save();
 
-		return $mediaRate->toArray();
+		return $this->mediaRate->toArray();
 	}
 
 	/**
