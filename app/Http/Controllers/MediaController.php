@@ -91,4 +91,18 @@ class MediaController extends Controller
 	
 		return $this->success($result, 'Media deleted');
 	}
+
+	/**
+	 * List all media.
+	 */
+	public function list(Request $request)
+	{
+		try {
+			$result = $this->mediaService->listMedia($request);
+		} catch (Exception $e) {
+			return $this->error($e->getTrace(), $e->getMessage(), $e->getCode());
+		}
+	
+		return $this->success($result);
+	}
 }
