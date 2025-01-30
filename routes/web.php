@@ -10,6 +10,7 @@ use App\Http\Controllers\MediaCrewController;
 use App\Http\Controllers\MediaGenreController;
 use App\Http\Controllers\MediaRateController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\PersonRoleController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\RoleController;
 
@@ -135,8 +136,8 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* PersonRoleController::class */)->group(function () {
-		Route::prefix('person-role')->group(function () {
+	Route::controller(PersonRoleController::class)->group(function () {
+		Route::prefix('person-roles')->group(function () {
 			Route::prefix('person/{personId}')->group(function () {
 				Route::get('', 'list');
 				Route::post('role/{roleId}/add', 'add');
