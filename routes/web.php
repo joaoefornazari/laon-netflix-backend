@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MediaAwardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\MediaCrewController;
 use App\Http\Controllers\MediaGenreController;
 use App\Http\Controllers\MediaRateController;
 use App\Http\Controllers\PersonController;
@@ -124,7 +125,7 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* MediaCrewController::class */)->group(function () {
+	Route::controller(MediaCrewController::class)->group(function () {
 		Route::prefix('media-crew')->group(function () {
 			Route::prefix('media/{mediaId}')->group(function () {
 				Route::get('', 'list');
