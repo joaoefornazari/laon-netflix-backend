@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MediaAwardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\MediaGenreController;
 use App\Http\Controllers\MediaRateController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ReviewerController;
@@ -113,30 +114,33 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* MediaGenreController::class */)->group(function () {
-		Route::prefix('media-genre')->group(function () {
-			Route::post('new', 'create');
-			Route::get('{id}', 'read');
-			Route::put('{id}/update', 'update');
-			Route::delete('{id}/delete', 'delete');
+	Route::controller(MediaGenreController::class)->group(function () {
+		Route::prefix('media-genres')->group(function () {
+			Route::prefix('media/{mediaId}')->group(function () {
+				Route::get('', 'list');
+				Route::post('genre/{genreId}/add', 'add');
+				Route::delete('genre/{genreId}/delete', 'delete');
+			});
 		});
 	});
 
 	Route::controller(/* MediaCrewController::class */)->group(function () {
 		Route::prefix('media-crew')->group(function () {
-			Route::post('new', 'create');
-			Route::get('{id}', 'read');
-			Route::put('{id}/update', 'update');
-			Route::delete('{id}/delete', 'delete');
+			Route::prefix('media/{mediaId}')->group(function () {
+				Route::get('', 'list');
+				Route::post('person/{personId}/add', 'add');
+				Route::delete('person/{personId}/delete', 'delete');
+			});
 		});
 	});
 
 	Route::controller(/* PersonRoleController::class */)->group(function () {
 		Route::prefix('person-role')->group(function () {
-			Route::post('new', 'create');
-			Route::get('{id}', 'read');
-			Route::put('{id}/update', 'update');
-			Route::delete('{id}/delete', 'delete');
+			Route::prefix('person/{personId}')->group(function () {
+				Route::get('', 'list');
+				Route::post('role/{roleId}/add', 'add');
+				Route::delete('role/{roleId}/delete', 'delete');
+			});
 		});
 	});
 });
