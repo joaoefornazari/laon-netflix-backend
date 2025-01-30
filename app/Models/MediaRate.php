@@ -9,6 +9,8 @@ class MediaRate extends Model
 {
     use HasFactory;
 
+		protected $table = "media_rate";
+
 		/**
 		 * The attributes that are mass assignable.
 		 * 

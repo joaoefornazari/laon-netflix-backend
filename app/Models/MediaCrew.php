@@ -9,6 +9,8 @@ class MediaCrew extends Model
 {
     use HasFactory;
 
+		protected $table = "media_crew";
+
 		/**
 		 * The attributes that are mass assignable.
 		 * 

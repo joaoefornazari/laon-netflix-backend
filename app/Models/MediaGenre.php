@@ -9,6 +9,8 @@ class MediaGenre extends Model
 {
     use HasFactory;
 
+		protected $table = 'media_genre';
+
 		/**
 		 * The attributes that are mass assignable.
 		 * 
