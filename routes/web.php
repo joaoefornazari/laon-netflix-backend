@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MediaAwardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\MediaRateController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\RoleController;
@@ -91,12 +92,14 @@ Route::prefix('api/v1/')->group(function () {
 		});
 	});
 
-	Route::controller(/* MediaRateController::class */)->group(function () {
-		Route::prefix('media-rate')->group(function () {
-			Route::post('new', 'create');
-			Route::get('{id}', 'read');
-			Route::put('{id}/update', 'update');
-			Route::delete('{id}/delete', 'delete');
+	Route::controller(MediaRateController::class)->group(function () {
+		Route::prefix('media-rates')->group(function () {
+			Route::prefix('media/{mediaId}')->group(function () {
+				Route::get('', 'list');
+				Route::post('reviewer/{reviewerId}/add', 'add');
+				Route::post('reviewer/{reviewerId}/update', 'update');
+				Route::delete('reviewer/{reviewerId}/delete', 'delete');
+			});
 		});
 	});
 
