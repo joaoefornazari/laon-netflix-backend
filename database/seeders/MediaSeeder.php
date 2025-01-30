@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\MediaController;
+use App\Http\Services\MediaService;
 use App\Models\Media;
 use Illuminate\Database\Seeder;
 
@@ -237,6 +239,18 @@ class MediaSeeder extends Seeder
 				]
 			];
 
+			$imageUrls = array_map(function($movie) {
+				return $movie['image_url'];
+			}, $movies);
+
+			$movies = array_map(function($movie) {
+				unset($movie['image_url']);
+				return $movie;
+			}, $movies);
+
 			Media::insert($movies);
+			for ($i = 0; $i < count($imageUrls); $i++) {
+				(new MediaService(new Media()))->downloadMediaImage($imageUrls[$i], $i + 1);
+			}
     }
 }
