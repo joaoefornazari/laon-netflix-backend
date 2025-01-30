@@ -9,7 +9,7 @@ class MediaAward extends Model
 {
     use HasFactory;
 
-		protected $table = "MediaAward";
+		protected $table = "Media_Award";
 
 		/**
 		 * The attributes that are mass assignable.
